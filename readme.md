@@ -2,6 +2,8 @@
 
 A modern low-profile ergonomic split keyboard, with a number row and a feature-full thumb cluster.
 
+![](pics/my_v0.1.jpg)
+
 ![](pics/1.jpg)
 
 # Sourcing the components
