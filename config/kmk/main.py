@@ -56,6 +56,9 @@ keyboard.coord_mapping = [
             29, 28,                        55, 54 
      ]
 
+xxxxxxxx = KC.NO
+________ = KC.TRNS
+
 # Combos
 combos.combos = [
     Sequence((KC.LWIN, KC.W), KC.LALT(KC.F4)),
@@ -72,7 +75,7 @@ L2L3 = KC.TD(
 LALT = KC.HT(KC.NO, KC.LALT)
 
 keyboard.keymap = [
-    [                                              
+[                                              
                                                          ####### MAIN #######
 
 KC.GRV,   KC.N1,    KC.N2,     KC.N3,    KC.N4,    KC.N5,                 KC.N6,    KC.N7,    KC.N8,    KC.N9,     KC.N0,    KC.MINUS,
@@ -82,44 +85,40 @@ KC.LCTRL, KC.Z,     KC.X,      KC.C,     KC.V,     KC.B,                  KC.N, 
  
                                KC.SPC,   LALT,     KC.ENT,                L2L3,     KC.RSFT,  KC.MO(1),    
                                          KC.BSPC,  KC.LWIN,               KC.DEL,   KC.RALT
-    ],
-
-    [
+],
+[
                                                       ####### SYMBOLS #######
 
 KC.F11,   KC.F1,    KC.F2,    KC.F3,    KC.F4,    KC.F5,                 KC.F6,    KC.F7,    KC.F8,    KC.F9,    KC.F10,   KC.F12,
-KC.TRNS,  KC.QUOT,  KC.LABK,  KC.RABK,  KC.DQUO,  KC.DOT,                KC.DLR,   KC.AT,    KC.LBRC,  KC.RBRC,  KC.PERC,  KC.EQUAL,
-KC.TRNS,  KC.EXLM,  KC.MINS,  KC.PLUS,  KC.EQUAL, KC.HASH,               KC.PIPE,  KC.UNDS,  KC.LPRN,  KC.RPRN,  KC.COLN,  KC.DQUO,
-KC.TRNS,  KC.CIRC,  KC.SLASH, KC.ASTR,  KC.BSLASH,KC.GRV,                KC.TILD,  KC.AMPR,  KC.LCBR,  KC.RCBR,  KC.QUES,  KC.DEL,
+________, KC.QUOT,  KC.LABK,  KC.RABK,  KC.DQUO,  KC.DOT,                KC.DLR,   KC.AT,    KC.LBRC,  KC.RBRC,  KC.PERC,  KC.EQUAL,
+________, KC.EXLM,  KC.MINS,  KC.PLUS,  KC.EQUAL, KC.HASH,               KC.PIPE,  KC.UNDS,  KC.LPRN,  KC.RPRN,  KC.COLN,  KC.DQUO,
+________, KC.CIRC,  KC.SLASH, KC.ASTR,  KC.BSLASH,KC.GRV,                KC.TILD,  KC.AMPR,  KC.LCBR,  KC.RCBR,  KC.QUES,  KC.DEL,
  
-                              KC.TRNS,  KC.TRNS,  KC.TRNS,               KC.TO(0),  KC.TRNS,  KC.TRNS,     
-                                        KC.TRNS,  KC.TRNS,               KC.TRNS,   KC.TRNS
-    ],
-
-    [
+                              ________, ________, ________,              KC.TO(0),  ________, ________,    
+                                        ________, ________,              ________,  ________
+],
+[
              ####### NUMERICAL #######                                                  ###### NAVIGATION ########
 
-KC.MUTE,  KC.NO,    KC.MPRV,  KC.MPLY,  KC.MNXT,  KC.RESET,              KC.BRID,  KC.BRIU,  KC.PGUP,   KC.NO,    KC.NO,   KC.NO,
+KC.MUTE,  xxxxxxxx, KC.MPRV,  KC.MPLY,  KC.MNXT,  KC.RESET,              KC.BRID,  KC.BRIU,  KC.PGUP,   xxxxxxxx, KC.NO,   KC.NO,
 KC.VOLU,  KC.MINUS, KC.N7,    KC.N8,    KC.N9,    KC.SLASH,              KC.HOME,  KC.PGDN,  KC.UP,     KC.PGUP,  KC.P,    KC.NO,
 KC.VOLD,  KC.PLUS,  KC.N4,    KC.N5,    KC.N6,    KC.ASTR,               KC.HOME,  KC.LEFT,  KC.DOWN,   KC.RIGHT, KC.END,  KC.NO,
-KC.TRNS,  KC.N0,    KC.N1,    KC.N2,    KC.N3,    KC.DEL,                KC.NO,    KC.NO,    KC.PGDN,   KC.NO,    KC.NO,   KC.NO,
+________, KC.N0,    KC.N1,    KC.N2,    KC.N3,    KC.DEL,                xxxxxxxx, xxxxxxxx, KC.PGDN,   xxxxxxxx, KC.NO,   KC.NO,
  
-                              KC.TRNS,  KC.TRNS,  KC.TRNS,               KC.TO(0), KC.TRNS,  KC.ENT,     
-                                        KC.TRNS,  KC.TRNS,               KC.TRNS,  KC.TRNS
-    ],
-    
+                              ________, ________, ________,              KC.TO(0), ________, KC.ENT,     
+                                        ________, ________,              ________, ________
+],
 [
                                                       ####### MOUSE #######
 
-KC.NO,    KC.NO,    KC.NO,     KC.NO,     KC.NO,     KC.NO,              KC.NO,    KC.NO,    KC.NO,    KC.NO,    KC.NO,    KC.NO,
-KC.NO,    KC.NO,    KC.NO,     KC.MB_BTN4,KC.MB_BTN5,KC.NO,              KC.NO,    KC.NO,    KC.MS_UP, KC.NO,    KC.NO,    KC.NO,
-KC.ESC,   KC.NO,    KC.MB_LMB, KC.MB_MMB, KC.MB_RMB, KC.NO,              KC.NO,    KC.MS_LT, KC.MS_DN, KC.MS_RT, KC.NO,    KC.NO,
-KC.TRNS,  KC.NO,    KC.NO,     KC.NO,     KC.NO,     KC.NO,              KC.NO,    KC.NO,    KC.NO,    KC.NO,    KC.NO,    KC.NO,
+xxxxxxxx, xxxxxxxx, xxxxxxxx,  xxxxxxxx,  xxxxxxxx,  xxxxxxxx,           xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, KC.NO,
+xxxxxxxx, xxxxxxxx, xxxxxxxx,  KC.MB_BTN4,KC.MB_BTN5,xxxxxxxx,           xxxxxxxx, xxxxxxxx, KC.MS_UP, xxxxxxxx, xxxxxxxx, KC.NO,
+KC.ESC,   xxxxxxxx, KC.MB_LMB, KC.MB_MMB, KC.MB_RMB, xxxxxxxx,           xxxxxxxx, KC.MS_LT, KC.MS_DN, KC.MS_RT, xxxxxxxx, KC.NO,
+________, xxxxxxxx, xxxxxxxx,  xxxxxxxx,  xxxxxxxx,  xxxxxxxx,           xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, KC.NO,
 
-                               KC.NO,     KC.MW_UP,  KC.NO,              KC.TO(0), KC.NO,    KC.NO,
-                                          KC.MW_DN,  KC.NO,              KC.NO,    KC.NO,
+                               xxxxxxxx,  KC.MW_UP,  xxxxxxxx,           KC.TO(0), xxxxxxxx, KC.NO,
+                                          KC.MW_DN,  xxxxxxxx,           xxxxxxxx, KC.NO
 ]
-
 ]
 
 
