@@ -10,6 +10,7 @@ from kmk.modules.mouse_keys import MouseKeys
 from kmk.modules.tapdance import TapDance
 from kmk.modules.combos import Combos, Chord, Sequence
 from kmk.modules.holdtap import HoldTap
+from kmk.modules.capsword import CapsWord
 from kmk.modules.split import Split, SplitType, SplitSide
 
 layers = Layers()
@@ -37,6 +38,7 @@ keyboard.modules.append(MouseKeys())
 keyboard.modules.append(TapDance())
 keyboard.modules.append(combos)
 keyboard.modules.append(HoldTap())
+keyboard.modules.append(CapsWord())
 keyboard.modules.append(split)
 
 #                          0           1          2         3         4         5          6          7         8         9         10         11
@@ -57,10 +59,10 @@ keyboard.coord_mapping = [
 # Combos
 combos.combos = [
     Sequence((KC.LWIN, KC.W), KC.LALT(KC.F4)),
+    Chord((KC.LALT, KC.RSFT), KC.CW),           # CapsWord on lalt and rshift
 ]
+
 # TapDance: 
-# hold to momentarly activate layer 1, tap for permanent layert 1
-# tap once and then hold to momentarly activate layer 2, tap twice for permanent layert 2
 L2L3 = KC.TD(
     KC.MO(2),
     KC.MO(3)
