@@ -61,8 +61,9 @@ ________ = KC.TRNS
 
 # Combos
 combos.combos = [
-    Sequence((KC.LWIN, KC.W), KC.LALT(KC.F4)),
+    Sequence((KC.LWIN, KC.W), KC.LALT(KC.F4), timeout=150),
     Chord((KC.LALT, KC.RSFT), KC.CW),           # CapsWord on lalt and rshift
+#    Sequence((KC.K, KC.J), KC.ESC, timeout=150),
 ]
 
 # TapDance: 
@@ -72,52 +73,51 @@ L2L3 = KC.TD(
 )
 
 # HoldTap: KC.HT(key_tapped, key_held)
-LALT = KC.HT(KC.NO, KC.LALT)
+LALT = KC.HT(KC.NO, KC.LALT)  # disables lalt tap (which enters menubar in some programs)
 
 keyboard.keymap = [
 [                                              
                                                          ####### MAIN #######
 
-KC.GRV,   KC.N1,    KC.N2,     KC.N3,    KC.N4,    KC.N5,                 KC.N6,    KC.N7,    KC.N8,    KC.N9,     KC.N0,    KC.MINUS,
-KC.TAB,   KC.Q,     KC.W,      KC.E,     KC.R,     KC.T,                  KC.Y,     KC.U,     KC.I,     KC.O,      KC.P,     KC.EQUAL,
-KC.ESC,   KC.A,     KC.S,      KC.D,     KC.F,     KC.G,                  KC.H,     KC.J,     KC.K,     KC.L,      KC.SCLN,  KC.ENT,
-KC.LCTRL, KC.Z,     KC.X,      KC.C,     KC.V,     KC.B,                  KC.N,     KC.M,     KC.COMM,  KC.DOT,    KC.SLSH,  KC.BSPC,
+KC.LSFT,  KC.N1,    KC.N2,     KC.N3,    KC.N4,    KC.N5,                 KC.N6,    KC.N7,    KC.N8,    KC.N9,     KC.N0,    KC.MINUS,
+KC.TAB,   KC.Q,     KC.W,      KC.E,     KC.R,     KC.T,                  KC.Y,     KC.U,     KC.I,     KC.O,      KC.P,     KC.APP,
+KC.ESC,   KC.A,     KC.S,      KC.D,     KC.F,     KC.G,                  KC.H,     KC.J,     KC.K,     KC.L,      KC.SCLN,  KC.BSPC,
+KC.LCTRL, KC.Z,     KC.X,      KC.C,     KC.V,     KC.B,                  KC.N,     KC.M,     KC.COMM,  KC.DOT,    KC.SLSH,  KC.DEL,
  
                                KC.SPC,   LALT,     KC.ENT,                L2L3,     KC.RSFT,  KC.MO(1),    
-                                         KC.BSPC,  KC.LWIN,               KC.DEL,   KC.RALT
+                                         KC.BSPC,  KC.LWIN,               KC.MEH,   KC.RALT
 ],
 [
                                                       ####### SYMBOLS #######
 
 KC.F11,   KC.F1,    KC.F2,    KC.F3,    KC.F4,    KC.F5,                 KC.F6,    KC.F7,    KC.F8,    KC.F9,    KC.F10,   KC.F12,
-________, KC.QUOT,  KC.LABK,  KC.RABK,  KC.DQUO,  KC.DOT,                KC.DLR,   KC.AT,    KC.LBRC,  KC.RBRC,  KC.PERC,  KC.EQUAL,
-________, KC.EXLM,  KC.MINS,  KC.PLUS,  KC.EQUAL, KC.HASH,               KC.PIPE,  KC.UNDS,  KC.LPRN,  KC.RPRN,  KC.COLN,  KC.DQUO,
-________, KC.CIRC,  KC.SLASH, KC.ASTR,  KC.BSLASH,KC.GRV,                KC.TILD,  KC.AMPR,  KC.LCBR,  KC.RCBR,  KC.QUES,  KC.DEL,
+________, KC.QUOT,  KC.LABK,  KC.RABK,  KC.DQUO,  KC.DOT,                KC.DLR,   KC.AT,    KC.LBRC,  KC.RBRC,  KC.PERC,  ________,
+________, KC.EXLM,  KC.MINS,  KC.PLUS,  KC.EQUAL, KC.HASH,               KC.PIPE,  KC.UNDS,  KC.LPRN,  KC.RPRN,  KC.COLN,  ________,
+________, KC.CIRC,  KC.SLASH, KC.ASTR,  KC.BSLASH,KC.GRV,                KC.TILD,  KC.AMPR,  KC.LCBR,  KC.RCBR,  KC.QUES,  ________,
  
                               ________, ________, ________,              KC.TO(0),  ________, ________,    
                                         ________, ________,              ________,  ________
 ],
 [
-             ####### NUMERICAL #######                                                  ###### NAVIGATION ########
+             ####### MOUSE #######                                                  ###### NAVIGATION ########
 
-KC.MUTE,  xxxxxxxx, KC.MPRV,  KC.MPLY,  KC.MNXT,  KC.RESET,              KC.BRID,  KC.BRIU,  KC.PGUP,   xxxxxxxx, KC.NO,   KC.NO,
-KC.VOLU,  KC.MINUS, KC.N7,    KC.N8,    KC.N9,    KC.SLASH,              KC.HOME,  KC.PGDN,  KC.UP,     KC.PGUP,  KC.P,    KC.NO,
-KC.VOLD,  KC.PLUS,  KC.N4,    KC.N5,    KC.N6,    KC.ASTR,               KC.HOME,  KC.LEFT,  KC.DOWN,   KC.RIGHT, KC.END,  KC.NO,
-________, KC.N0,    KC.N1,    KC.N2,    KC.N3,    KC.DEL,                xxxxxxxx, xxxxxxxx, KC.PGDN,   xxxxxxxx, KC.NO,   KC.NO,
+KC.MUTE,  xxxxxxxx, KC.MPRV,  KC.MPLY,  KC.MNXT,  KC.RESET,              KC.BRID,  KC.BRIU,  KC.PGUP,  xxxxxxxx, xxxxxxxx, xxxxxxxx,
+KC.VOLU, KC.MB_BTN4,KC.MW_DN, KC.MS_UP, KC.MW_UP, KC.BM_BTN5,            KC.HOME,  KC.PGDN,  KC.UP,    KC.PGUP,  KC.P,     xxxxxxxx,
+KC.VOLD,  KC.MS_LT, KC.MS_LT, KC.MS_DN, KC.MS_RT, xxxxxxxx,              KC.HOME,  KC.LEFT,  KC.DOWN,  KC.RIGHT, KC.END,   xxxxxxxx,
+________, xxxxxxxx, KC.MB_LMB,KC.MB_MMB,KC.MB_RMB,KC.DEL,                xxxxxxxx, xxxxxxxx, KC.PGDN,  xxxxxxxx, xxxxxxxx, xxxxxxxx,
  
                               ________, ________, ________,              KC.TO(0), ________, KC.ENT,     
                                         ________, ________,              ________, ________
 ],
 [
                                                       ####### MOUSE #######
+xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx,              xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, 
+xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx,              xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, 
+xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx,              xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, 
+xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx,              xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, 
 
-xxxxxxxx, xxxxxxxx, xxxxxxxx,  xxxxxxxx,  xxxxxxxx,  xxxxxxxx,           xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, KC.NO,
-xxxxxxxx, xxxxxxxx, xxxxxxxx,  KC.MB_BTN4,KC.MB_BTN5,xxxxxxxx,           xxxxxxxx, xxxxxxxx, KC.MS_UP, xxxxxxxx, xxxxxxxx, KC.NO,
-KC.ESC,   xxxxxxxx, KC.MB_LMB, KC.MB_MMB, KC.MB_RMB, xxxxxxxx,           xxxxxxxx, KC.MS_LT, KC.MS_DN, KC.MS_RT, xxxxxxxx, KC.NO,
-________, xxxxxxxx, xxxxxxxx,  xxxxxxxx,  xxxxxxxx,  xxxxxxxx,           xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, xxxxxxxx, KC.NO,
-
-                               xxxxxxxx,  KC.MW_UP,  xxxxxxxx,           KC.TO(0), xxxxxxxx, KC.NO,
-                                          KC.MW_DN,  xxxxxxxx,           xxxxxxxx, KC.NO
+                              xxxxxxxx, xxxxxxxx, xxxxxxxx,              xxxxxxxx, xxxxxxxx, xxxxxxxx, 
+                                        xxxxxxxx, xxxxxxxx,              xxxxxxxx, xxxxxxxx
 ]
 ]
 
